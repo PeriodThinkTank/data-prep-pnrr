@@ -12,7 +12,10 @@ logger = getLogger(__name__)
 def get_p01() -> pd.DataFrame:
 
     """
-    Fetches P01 Dataset: Linking CIGs and CUPs
+    Fetches P01 Dataset: Linking CIGs and CUPs.
+
+    CIG: Codice Identificativo Gara 
+    CUP: Codice Unico di progetto
     """
     logger.info("Fetching P01..")
 
