@@ -7,7 +7,12 @@ P02_FILENAME = "OpenCup_Localizzazione.csv"
 
 P03_URL = "https://dati.anticorruzione.it/opendata/dataset/misurepremiali-pnrrpnc"
 P04_URL = "https://dati.anticorruzione.it/opendata/dataset/indicatori-pnrrpnc"
-P05_URL = "https://dati.anticorruzione.it/opendata/dataset/cig-2023"
+P05_URLs = {
+    2020: "https://dati.anticorruzione.it/opendata/dataset/cig-2020",
+    2021: "https://dati.anticorruzione.it/opendata/dataset/cig-2021",
+    2022: "https://dati.anticorruzione.it/opendata/dataset/cig-2022",
+    2023: "https://dati.anticorruzione.it/opendata/dataset/cig-2023",
+}
 
 COMUNI_SOURCE_URL = ""
 MISSIONI_SOURCE_URL = ""

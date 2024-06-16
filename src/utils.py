@@ -1,16 +1,26 @@
+import re
 import requests
 import pandas as pd
 import zipfile
 
+from bs4 import BeautifulSoup
 from io import StringIO
 from io import BytesIO
 from logging import getLogger
-from typing import List, Optional
+from typing import List, Optional, Union
+from urllib.parse import urlparse
+from urllib.request import urlopen
 from zipfile import ZipFile
 
 
 
 logger = getLogger(__name__)
+
+
+def get_base_url(url: str) -> str:
+    parsed_url = urlparse(url)
+    base_url = f"{parsed_url.scheme}://{parsed_url.netloc}"
+    return base_url 
 
 
 def fetch_csv(url: str) -> pd.DataFrame:
@@ -61,7 +71,7 @@ def fetch_csv_from_zip(
         The URL of the ZIP file.
     `csv_filename`: `str`
         The name of the CSV file within the ZIP archive.
-    ``: ```
+    `separator`: `str`
         The separator used in the CSV file
     `na_values`: `list`
 
@@ -93,4 +103,74 @@ def fetch_csv_from_zip(
         return None
     except pd.errors.ParserError as e:
         logger.error(f'Error parsing CSV data: {e}')
+        return None
+    
+
+def fetch_csvs_from_url(url: str, files_title: str, separator: str = ";") -> Union[pd.DataFrame, None]:
+    """
+    Fetches multiple CSVs files with a common title (i.e. `cig_csv`) 
+    from a URL, and returns a `pd.DataFrame` out of them. 
+
+    -------
+    Params:
+    -------
+    `url`: `str`
+        The URL of the ZIP file.
+    `files_title`: `str`  
+        The common part of the title between the files you plan to fetch
+    `separator`: `str`
+        The separator used in the CSV file(s)
+    --------
+    Returns:
+    --------
+    `pd.DataFrame` 
+        The CSVs data merged into a pandas DataFrame.
+    """
+
+    base_link = get_base_url(url)
+
+    html_page = requests.get(url)
+    soup = BeautifulSoup(html_page.content, 'html.parser')
+    file_urls = soup.findAll(
+        'a', 
+        class_="heading",
+        title=re.compile(f"^{files_title}")
+    )
+
+    links = [link.get('href') for link in file_urls]
+
+    data_links = []
+
+    for link in links:
+        l = base_link+link
+        html_page = requests.get(l)
+        soup = BeautifulSoup(html_page.content, 'html.parser')
+        file_urls = soup.findAll(
+            'a',
+            class_="btn btn-primary resource-url-analytics resource-type-None"
+        )
+        data_links.append(file_urls[0].get('href'))
+
+    logger.info(f"Found {len(data_links)} .csv files in this link: {url}")
+
+    full_df = pd.DataFrame()
+
+    for link in data_links:
+        resp = urlopen(link)
+        zipfile = ZipFile(BytesIO(resp.read()))
+        fname = zipfile.namelist()[0]
+        df = pd.read_csv(zipfile.open(fname), dtype=object, delimiter=';')
+        zipfile.close()
+        full_df = pd.concat([full_df, df], ignore_index=True, sort=False)
+
+        logger.info(f"File {fname} appended to the Dataset")
+
+    num_rows = full_df.shape[0]
+    num_columns = full_df.shape[1]
+
+    if num_rows > 0:
+        logger.info(f"Dataset has {num_rows} Number of rows")
+        return full_df 
+    else:
+        logger.warning("Dataset from is emty")
         return None
