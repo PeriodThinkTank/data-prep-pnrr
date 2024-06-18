@@ -14,5 +14,6 @@ P05_URLs = {
     2023: "https://dati.anticorruzione.it/opendata/dataset/cig-2023",
 }
 
-COMUNI_SOURCE_URL = ""
-MISSIONI_SOURCE_URL = ""
+PATH_COMUNI = "data/Elenco-comuni-italiani.csv"
+PATH_MISSIONI = "data/missioni_pnrr.json"
+PATH_COMPONENTI = "data/missioni_pnrr_comp.json"
