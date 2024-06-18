@@ -1,6 +1,7 @@
 # repo-specific
 .vscode
-data
+data/cup_csv.csv
+data/OpenCup_Localizzazione.csv
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

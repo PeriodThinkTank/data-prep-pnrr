@@ -20,6 +20,10 @@ Repo creata per manutenere il codice di aggiornamento della base dati per la [ap
 | Missioni | **Elenco missioni/sottomissioni PNRR** | `.json`| NA | NA | NA |
 
 
+## Note Metodologiche 📕
+* I dataset Comuni e Missioni vengono presi come dati e non aggiornati. 
+* Per il resto delle fonti dati, al fine di popolare la dashboard di frontend con informazioni rilevanti e aggiornate, Period Think Tank effettuerà l'aggiornamento con frequenza adeguata.
+
 ## Punti Aperti 👀
 
 #### Ricostruzione P05
