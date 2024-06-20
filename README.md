@@ -17,7 +17,8 @@ Repo creata per manutenere il codice di aggiornamento della base dati per la [ap
 | P04 | **Quote e Deroghe** | `.csv` to `.xlsx` | [ANAC](https://dati.anticorruzione.it/opendata/dataset/indicatori-pnrrpnc) | 08/01/2024 | 03/06/2024 | Mensile| NA |
 | P05 | **Anagrafica CIG** (2023) | `.csv` | [ANAC](https://dati.anticorruzione.it/opendata/dataset/cig-2023) | 08/01/2024 | 18/01/2024 | in attesa di aggiornamento 2024| NA |
 | Comuni | **Elenco Comuni Italiani** | `.csv` | Istat | NA | NA | NA |
-| Missioni | **Elenco missioni/sottomissioni PNRR** | `.json`| NA | NA | NA |
+| Missioni | **Elenco missioni/componenti PNRR** | `.json`| NA | NA | NA |
+| P06 | **Indicatori Comuni europei del PNRR - Universo ReGiS** | `.csv`| [italiadomani](https://www.italiadomani.gov.it/content/sogei-ng/it/it/catalogo-open-data/indicatori-comuni-europei-del-pnrr---universo-regis.html) | NA | 18/04/24 | NA | NA |
 
 
 ## Punti Aperti 👀
