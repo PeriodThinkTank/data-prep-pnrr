@@ -2,6 +2,7 @@
 Repo creata per manutenere il codice di aggiornamento della base dati per la [app di monitoraggio PNRR](https://public.tableau.com/app/profile/period.thinktank/viz/webapp-attempt_newbase/Home) di Period Think Tank
 
 ![draft](docs/draft.png)
+*Draft Pipeline di Estrazione del Dato finale DA AGGIORNARE*
 
 ## Risorse Utili 📝
 * [Link](https://docs.google.com/document/d/1HaHIbAhVGqhypHSc_gMIXG6Z4ioIH56mi-BsnI2Ty1w/edit#heading=h.r13rq9c3hkqr) ad analisi funzionale realizzata da @lalafrufru e @alessandrapomella  
@@ -16,8 +17,11 @@ Repo creata per manutenere il codice di aggiornamento della base dati per la [ap
 | P03 | **Premialità** | `.csv` to `.xlsx` | [ANAC](https://dati.anticorruzione.it/opendata/dataset/misurepremiali-pnrrpnc) | 08/01/2024 | 03/06/2024 | Mensile | NA |
 | P04 | **Quote e Deroghe** | `.csv` to `.xlsx` | [ANAC](https://dati.anticorruzione.it/opendata/dataset/indicatori-pnrrpnc) | 08/01/2024 | 03/06/2024 | Mensile| NA |
 | P05 | **Anagrafica CIG** (2023) | `.csv` | [ANAC](https://dati.anticorruzione.it/opendata/dataset/cig-2023) | 08/01/2024 | 18/01/2024 | in attesa di aggiornamento 2024| NA |
-| Comuni | **Elenco Comuni Italiani** | `.csv` | Istat | NA | NA | NA |
-| Missioni | **Elenco missioni/sottomissioni PNRR** | `.json`| NA | NA | NA |
+| Comuni | **Elenco Comuni Italiani** | `.csv` | Istat | NA | NA | NA | NA |
+| Missioni | **Elenco missioni/sottomissioni PNRR** | `.json`| NA | NA | NA | NA | NA |
+| Indicatori PNRR | **Mappatura indicatori comuni del PNRR** | `.csv` | [ItaliaDomani](https://www.italiadomani.gov.it/content/sogei-ng/it/it/catalogo-open-data/mappatura-indicatori-comuni.html) | NA | 18/04/24 (v6) | NA | Dataset citato nell'articolo di [inGenere](https://www.ingenere.it/) |
+| Target PNRR | **Indicatori Target del PNRR** | `.csv` | [ItaliaDomani](https://www.italiadomani.gov.it/content/sogei-ng/it/it/catalogo-open-data/indicatori-target-del-pnrr--dati-validati-.html) | NA | 15/03/2024 | NA | NA |
+| Indicatori PNRR & SDGS | **Monitoraggio delle misure del PNRR attraverso gli indicatori di sviluppo sostenibile (SDGs) e dell'Agenda 2030** | `.csv` | [ItaliaDomani](https://www.italiadomani.gov.it/content/sogei-ng/it/it/catalogo-open-data/monitoraggio-delle-misure-del-pnrr-attraverso-gli-indicatori-di-.html) | NA | 19/06/2024 (v5) | NA | Dataset di interesse per alcune misure presenti che potrebbero impattare direttamente sul genere e inclusività |
 
 
 ## Note Metodologiche 📕
