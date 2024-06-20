@@ -20,6 +20,7 @@ Repo creata per manutenere il codice di aggiornamento della base dati per la [ap
 | Missioni | **Elenco missioni/componenti PNRR** | `.json`| NA | NA | NA |
 | P06 | **Indicatori Comuni europei del PNRR - Universo ReGiS** | `.csv`| [italiadomani](https://www.italiadomani.gov.it/content/sogei-ng/it/it/catalogo-open-data/indicatori-comuni-europei-del-pnrr---universo-regis.html) | NA | 18/04/24 | NA | NA |
 | P07 | **Avanzamento indicatori comuni del PNRR** | `.csv`|[italiadomani](https://www.italiadomani.gov.it/content/sogei-ng/it/it/catalogo-open-data/avanzamento-indicatori-comuni.html)| NA | 18/04/24 | NA | NA |
+| P08 | **Monitoraggio delle misure del PNRR attraverso gli indicatori di sviluppo sostenibile (SDGs) e dell'Agenda 2030** | `.csv`|[italiadomani](https://www.italiadomani.gov.it/content/sogei-ng/it/it/catalogo-open-data/monitoraggio-delle-misure-del-pnrr-attraverso-gli-indicatori-di-.html)| NA | 19/06/24 | NA | NA |
 
 
 ## Punti Aperti 👀
