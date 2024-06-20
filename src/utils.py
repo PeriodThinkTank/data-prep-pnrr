@@ -174,3 +174,74 @@ def fetch_csvs_from_url(url: str, files_title: str, separator: str = ";") -> Uni
     else:
         logger.warning("Dataset from is emty")
         return None
+
+
+def fetch_csv_from_html(
+        page_url: str, 
+        base_url: str, 
+        filename_contains: str,
+        separator: str = ";",) -> pd.DataFrame:
+    """
+    Fetches CSV data from a webpage URL and returns it as a `pd.DataFrame`.
+
+    -------
+    Params:
+    -------
+    `page_url`: `str` 
+        The URL of the webpage containing the CSV file link.
+    `base_url`: `str`
+        The base URL to construct the full CSV file URL.
+    `filename_contains`: `str`
+        A substring that the desired CSV file name contains.
+    `separator`: `str`
+        The separator used in the CSV file
+    --------
+    Returns:
+    --------
+    `pd.DataFrame` 
+        The CSV data as a pandas DataFrame.
+    """
+
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
+    }
+
+    try:
+        logger.info(f'Starting to fetch webpage content from {page_url}')
+        response = requests.get(page_url, headers=headers)
+        response.raise_for_status()
+        
+        # Parse the HTML content
+        soup = BeautifulSoup(response.text, 'html.parser')
+        
+        # Find the span element containing the CSV file information
+        spans = soup.find_all('span', class_='title-file', attrs={'data-extension': 'csv'})
+        
+        selected_span = None
+        for span in spans:
+            if filename_contains in span.text:
+                selected_span = span
+                break
+
+        if not selected_span:
+            logger.error(f'CSV file containing "{filename_contains}" not found on the page')
+            return None
+        
+        # Construct the full URL of the CSV file
+        csv_url = base_url + span['data-url']
+        logger.info(f'CSV file URL found: {csv_url}')
+
+        csv_response = requests.get(csv_url, headers=headers)
+        csv_response.raise_for_status()
+        csv_data = StringIO(csv_response.text)
+        df = pd.read_csv(csv_data, on_bad_lines='skip', delimiter=separator)
+        logger.info(f'Successfully fetched and read CSV data into DataFrame')
+        return df
+    except requests.exceptions.RequestException as e:
+        logger.error(f'Error fetching webpage or CSV data: {e}')
+        return None
+    except pd.errors.ParserError as e:
+        logger.error(f'Error parsing CSV data: {e}')
+        return None
+    
+
