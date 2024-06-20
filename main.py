@@ -8,6 +8,8 @@ from src.data_collection.indicators_sdg import get_indicators_and_sdg
 from src.data_collection.missioni import fetch_pnrr_missions
 from src.data_collection.p01 import get_p01
 from src.data_collection.p02 import get_p02
+from src.data_collection.p03 import get_p03
+from src.data_collection.p04 import get_p04
 from src.data_collection.p05 import get_p05
 from src.data_collection.targets import get_targets
 
@@ -20,6 +22,10 @@ if __name__ == "__main__":
     p01 = get_p01()
 
     p02 = get_p02()
+
+    p03 = get_p03()
+
+    p04 = get_p04()
 
     p05 = get_p05()
 
