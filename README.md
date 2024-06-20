@@ -25,6 +25,7 @@ Repo creata per manutenere il codice di aggiornamento della base dati per la [ap
 | Indicatori PNRR & SDGS | **Monitoraggio delle misure del PNRR attraverso gli indicatori di sviluppo sostenibile (SDGs) e dell'Agenda 2030** |  `.csv`, `.xlsx`, `.json` | [ItaliaDomani](https://www.italiadomani.gov.it/content/sogei-ng/it/it/catalogo-open-data/monitoraggio-delle-misure-del-pnrr-attraverso-gli-indicatori-di-.html) | NA | 19/06/2024 (v5) | NA | Dataset di interesse per alcune misure presenti che potrebbero impattare direttamente sul genere e inclusività |
 
 
+
 ## Note Metodologiche 📕
 * I dataset Comuni e Missioni vengono presi come dati e non aggiornati. 
 * Per il resto delle fonti dati, al fine di popolare la dashboard di frontend con informazioni rilevanti e aggiornate, Period Think Tank effettuerà l'aggiornamento con frequenza adeguata.
