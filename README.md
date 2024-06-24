@@ -14,7 +14,7 @@ Repo creata per manutenere il codice di aggiornamento della base dati per la [ap
 | ID | Descrizione | Formato | Fonte | Ultima Estrazione | Ultimo Aggiornamento | Freq. Aggiornamento | Commenti |  
 |:---------|:------|:--------|:------------------|:---------|:---------|:------|:----|
 | P01 | **Associazione CIG-CUP** | `.csv`| [ANAC](https://dati.anticorruzione.it/opendata/dataset/cup) | 22/01/2024 | 03/06/2024 | Mensile | NA |
-| P02 | **Anagrafica CUP** | `.csv` | [OpenCup](https://www.opencup.gov.it/portale/documents/21195/299152/)| 08/12/2023 | 02/2024 | NA | NA |
+| CUP_localizzazione | **Localizzazione dei CUP** | `.csv` | [OpenCup](https://www.opencup.gov.it/portale/documents/21195/299152/OpendataLocalizzazione.zip/ac230d13-23a0-5929-8778-d34c21c9a7a4?t=1708704984649)| 08/12/2023 | 02/2024 | NA | NA |
 | P03 | **Premialità** | `.csv` to `.xlsx` | [ANAC](https://dati.anticorruzione.it/opendata/dataset/misurepremiali-pnrrpnc) | 08/01/2024 | 03/06/2024 | Mensile | NA |
 | P04 | **Quote e Deroghe** | `.csv` to `.xlsx` | [ANAC](https://dati.anticorruzione.it/opendata/dataset/indicatori-pnrrpnc) | 08/01/2024 | 03/06/2024 | Mensile| NA |
 | P05 | **Anagrafica CIG** (2023) | `.csv` | [ANAC](https://dati.anticorruzione.it/opendata/dataset/cig-2023) | 08/01/2024 | 18/01/2024 | in attesa di aggiornamento 2024| NA |
