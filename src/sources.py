@@ -1,9 +1,8 @@
 P01_URL = "https://dati.anticorruzione.it/opendata/download/dataset/cup/filesystem/cup_csv.zip"
 P01_FILENAME = "cup_csv.csv"
 
-P02_URL = "https://www.opencup.gov.it/portale/documents/21195/0/File+CUP+opencup+pnrr_PNRR+febbraio+2024_1.zip/8592fa4a-7814-60a1-97a2-910add3d4754?t=1708354296165"
-P02_FILENAME = "progetti_PNRR_febbraio2024.xlsx"
-P02_SHEET_NAME = "Esporta foglio di lavoro"
+P02_URL = "https://www.italiadomani.gov.it/content/sogei-ng/it/it/catalogo-open-data/Progetti_del_PNRR_Universo_ReGiS.html"
+P02_FILENAME = "PNRR_Progetti-Universo_REGIS_v6.csv"
 
 P03_URL = "https://dati.anticorruzione.it/opendata/download/dataset/misurepremiali-pnrrpnc/filesystem/misurepremiali-pnrrpnc_csv.zip"
 P03_FILENAME = "misurepremiali-pnrrpnc_csv.csv"
