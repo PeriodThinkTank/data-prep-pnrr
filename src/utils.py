@@ -105,6 +105,57 @@ def fetch_csv_from_zip(
         return None
     
 
+def fetch_excel_from_zip(
+    url: str, 
+    xlsx_filename: str,
+    sheet_name: str, 
+    na_values: Optional[list] = ["NA", "ND"]
+    ) -> pd.DataFrame:
+    """
+    Fetches a ZIP file from a specified URL, extracts the specified CSV file, 
+    and returns it as a pandas DataFrame.
+
+    -------
+    Params:
+    -------
+    `url`: `str`
+        The URL of the ZIP file.
+    `xlsx_filename`: `str`
+        The name of the Excel file within the ZIP archive.
+    `sheet_name`: `str`
+        The name of the relevant sheet
+    `na_values`: `list`
+    --------
+    Returns:
+    --------
+    `pd.DataFrame` 
+        The Excel data as a pandas DataFrame.
+    """
+    try:
+        logger.info(f'Starting to fetch ZIP file from {url}')
+        response = requests.get(url)
+        response.raise_for_status()  # Raise an HTTPError for bad responses
+
+        # Use BytesIO to handle the ZIP file in memory
+        with ZipFile(BytesIO(response.content)) as zip:
+            with zip.open(xlsx_filename) as file:
+                df = pd.read_excel(file, sheet_name=sheet_name, na_values=na_values)
+                logger.info(f'Successfully read {xlsx_filename} from ZIP file into DataFrame')
+                return df
+    except requests.exceptions.RequestException as e:
+        logger.error(f'Error fetching ZIP file: {e}')
+        return None
+    except zipfile.BadZipFile as e:
+        logger.error(f'Error opening ZIP file: {e}')
+        return None
+    except KeyError as e:
+        logger.error(f'Error extracting {xlsx_filename} from ZIP file: {e}')
+        return None
+    except pd.errors.ParserError as e:
+        logger.error(f'Error parsing CSV data: {e}')
+        return None
+    
+
 def fetch_csvs_from_url(url: str, files_title: str, separator: str = ";") -> Union[pd.DataFrame, None]:
     """
     Fetches multiple CSVs files with a common title (i.e. `cig_csv`) 
