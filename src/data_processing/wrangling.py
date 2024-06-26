@@ -82,3 +82,93 @@ def map_importo(importo: int) -> str:
         return 'MEDIA'
     else:
         return 'ALTA'
+    
+
+def conditions_individuals(data: pd.DataFrame):
+    """
+    Indicates whether the indicator refers to individuals. 
+
+    Should be used on raw Regis Dataset.
+
+    -------------
+    example usage:
+    -------------
+    ```
+        regis_comm_ind['FLG_INDICATORI_PERSONE'] = regis_comm_ind.apply(
+        conditions_individuals, axis=1
+        )
+    ```
+    """
+
+    if data['Codice Indicatore'] in [
+        "C10.A",
+        "C10.B",
+        "C10.C",
+        "C10.D",
+        "C10.E",
+        "C10.F",
+        "C10.G",
+        "C10.H",
+        "C10IA",
+        "C10IB",
+        "C10IC",
+        "C10ID",
+        "C10IE",
+        "C10IF",
+        "C10IG",
+        "C10IH",
+        "C11.A",
+        "C11.B",
+        "C11.C",
+        "C11.D",
+        "C11.E",
+        "C11.F",
+        "C11.G",
+        "C11.H",
+        "C12",
+        "C14.F",
+        "C14.M",
+        "C4",
+        "C7",
+        "C8.F",
+        "C8.M"
+    ]:
+        return 1
+    else:
+        return 0
+    
+
+def conditions_gender(data: pd.DataFrame):
+    """
+    Indicates the direct impacts based on gender.  
+
+    Should be used on raw Regis Dataset.
+
+    -------------
+    example usage:
+    -------------
+    ```
+        regis_comm_ind['FLG_INDICATORI_GENERE'] = regis_comm_ind.apply(
+        conditions_gender, axis=1
+        )
+    ```
+    """
+    if data['Codice Indicatore'] in [
+        "C10.E",
+        "C10.F",
+        "C10.G",
+        "C10.H",
+        "C10IE",
+        "C10IF",
+        "C10IG",
+        "C10IH",
+        "C11.E",
+        "C11.F",
+        "C11.G",
+        "C11.H",
+        "C14.F",
+         "C8.F"
+        ]:
+        return 1
+    else:
+        return 0

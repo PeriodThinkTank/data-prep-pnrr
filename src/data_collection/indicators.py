@@ -28,5 +28,5 @@ def get_indicators() -> pd.DataFrame:
         ITALIA_DOMANI_BASE_URL, 
         INDICATORI_FILENAME
     )
-
+    
     return indicators

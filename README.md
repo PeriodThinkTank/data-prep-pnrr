@@ -23,8 +23,7 @@ Repo creata per manutenere il codice di aggiornamento della base dati per la [ap
 | Indicatori PNRR | **Mappatura indicatori comuni del PNRR** |  `.csv`, `.xlsx`, `.json` | [ItaliaDomani](https://www.italiadomani.gov.it/content/sogei-ng/it/it/catalogo-open-data/mappatura-indicatori-comuni.html) | NA | 18/04/24 (v6) | NA | Dataset citato nell'articolo di [inGenere](https://www.ingenere.it/articoli/forma-senza-sostanza) |
 | Target PNRR | **Indicatori Target del PNRR** | `.csv`, `.xlsx`, `.json` | [ItaliaDomani](https://www.italiadomani.gov.it/content/sogei-ng/it/it/catalogo-open-data/indicatori-target-del-pnrr--dati-validati-.html) | NA | 15/03/2024 | NA | NA |
 | Indicatori PNRR & SDGS | **Monitoraggio delle misure del PNRR attraverso gli indicatori di sviluppo sostenibile (SDGs) e dell'Agenda 2030** |  `.csv`, `.xlsx`, `.json` | [ItaliaDomani](https://www.italiadomani.gov.it/content/sogei-ng/it/it/catalogo-open-data/monitoraggio-delle-misure-del-pnrr-attraverso-gli-indicatori-di-.html) | NA | 19/06/2024 (v5) | NA | Dataset di interesse per alcune misure presenti che potrebbero impattare direttamente sul genere e inclusività |
-
-
+| Indicatori Comuni Universo Regis | **Contiene i Codici Indicatori per associare le misure PNRR** |  `.csv`, `.xlsx`, `.json` | [ItaliaDomani](https://www.italiadomani.gov.it/content/sogei-ng/it/it/catalogo-open-data/indicatori-comuni-europei-del-pnrr---universo-regis.html) | NA | 18/04/2024 (v2) | NA | Dataset di interesse per l'incrocio con misure e submisure |
 
 ## Note Metodologiche 📕
 * I dataset Comuni e Missioni vengono presi come dati e non aggiornati. 
