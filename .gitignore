@@ -1,3 +1,11 @@
+# repo-specific
+.vscode
+data/cup_csv.csv
+data/OpenCup_Localizzazione.csv
+data/old/
+data/updated/
+data/helpers/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -158,3 +166,5 @@ cython_debug/
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
+notebooks/indicatori_comuni.csv
+notebooks/leftnew_34.csv
