@@ -184,7 +184,7 @@ def fetch_csvs_from_url(url: str, files_title: str, separator: str = ";") -> Uni
     file_urls = soup.findAll(
         'a', 
         class_="heading",
-        title=re.compile(f"^{files_title}")
+        title=re.compile(f"{files_title}")
     )
 
     links = [link.get('href') for link in file_urls]
@@ -206,14 +206,17 @@ def fetch_csvs_from_url(url: str, files_title: str, separator: str = ";") -> Uni
     full_df = pd.DataFrame()
 
     for link in data_links:
-        resp = urlopen(link)
-        zipfile = ZipFile(BytesIO(resp.read()))
-        fname = zipfile.namelist()[0]
-        df = pd.read_csv(zipfile.open(fname), dtype=object, delimiter=';')
-        zipfile.close()
-        full_df = pd.concat([full_df, df], ignore_index=True, sort=False)
+        if link.endswith('.zip'):
+            resp = urlopen(link)
+            zipfile = ZipFile(BytesIO(resp.read()))
+            fname = zipfile.namelist()[0]
+            df = pd.read_csv(zipfile.open(fname), dtype=object, delimiter=';')
+            zipfile.close()
+            full_df = pd.concat([full_df, df], ignore_index=True, sort=False)
 
-        logger.info(f"File {fname} appended to the Dataset")
+            logger.info(f"File {fname} appended to the Dataset")
+        else:
+            print(f"Link {link} is not a zip file")
 
     num_rows = full_df.shape[0]
     num_columns = full_df.shape[1]
