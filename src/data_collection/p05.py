@@ -13,7 +13,7 @@ def get_p05() -> pd.DataFrame:
     """
     Fetches P05 Dataset: CIGs Registry. 
     The Dataset contains all procurement information published 
-    in the year 2023.
+    in the year 2023 and 2024.
 
     CIG: Codice Identificativo Gara
     """

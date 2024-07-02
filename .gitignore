@@ -4,6 +4,7 @@ data/cup_csv.csv
 data/OpenCup_Localizzazione.csv
 data/old/
 data/updated/
+data/helpers/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
