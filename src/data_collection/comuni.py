@@ -9,7 +9,7 @@ def fetch_dataset_comuni() -> pd.DataFrame:
     """
     Returns the dataset with Italian municipalities
     """
-    comuni = pd.read_csv(PATH_COMUNI, delimiter=';')
+    comuni = pd.read_csv(PATH_COMUNI, delimiter=';', dtype={'Codice Comune formato alfanumerico': str})
     comuni.columns = comuni.columns.str.replace('�', 'à')
     comuni.columns = comuni.columns.str.strip().str.replace('\r\n', ' ', regex=False)
     comuni = comuni[
