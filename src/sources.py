@@ -14,7 +14,7 @@ P05_URLs = {
     # 2020: "https://dati.anticorruzione.it/opendata/dataset/cig-2020",
     # 2021: "https://dati.anticorruzione.it/opendata/dataset/cig-2021",
     # 2022: "https://dati.anticorruzione.it/opendata/dataset/cig-2022",
-    2023: "https://dati.anticorruzione.it/opendata/dataset/cig-2023",
+    #2023: "https://dati.anticorruzione.it/opendata/dataset/cig-2023",
     2024: "https://dati.anticorruzione.it/opendata/dataset/cig"
 }
 
