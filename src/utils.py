@@ -1,4 +1,6 @@
+import random
 import re
+import time
 import requests
 import pandas as pd
 import zipfile
@@ -178,8 +180,20 @@ def fetch_csvs_from_url(url: str, files_title: str, separator: str = ";") -> Uni
     """
 
     base_link = get_base_url(url)
+    headers = {
+        "User-Agent": (
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) "
+            "Chrome/118.0.0.0 Safari/537.36"
+        ),
+        "Accept-Language": "en-US,en;q=0.9",
+        "Referer": base_link,
+    }
 
-    html_page = requests.get(url)
+    session = requests.Session()
+    session.headers.update(headers)
+    
+    html_page = session.get(url)
     soup = BeautifulSoup(html_page.content, 'html.parser')
     file_urls = soup.findAll(
         'a', 
@@ -193,13 +207,15 @@ def fetch_csvs_from_url(url: str, files_title: str, separator: str = ";") -> Uni
 
     for link in links:
         l = base_link+link
-        html_page = requests.get(l)
+        html_page = session.get(l)
         soup = BeautifulSoup(html_page.content, 'html.parser')
         file_urls = soup.findAll(
             'a',
             class_="btn btn-primary resource-url-analytics resource-type-None"
         )
         data_links.append(file_urls[0].get('href'))
+
+        time.sleep(random.uniform(1.5, 3.5))
 
     logger.info(f"Found {len(data_links)} .csv files in this link: {url}")
 
@@ -225,7 +241,7 @@ def fetch_csvs_from_url(url: str, files_title: str, separator: str = ";") -> Uni
         logger.info(f"Dataset has {num_rows} Number of rows")
         return full_df 
     else:
-        logger.warning("Dataset from is emty")
+        logger.warning(f"Dataset from {url} is emty")
         return None
 
 
